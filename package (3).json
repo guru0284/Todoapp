@@ -1,0 +1,83 @@
+# Todo App - Frontend
+
+React application built with Vite and React Router DOM.
+
+## Tech Stack
+
+- **Framework:** React 18
+- **Build Tool:** Vite
+- **Routing:** React Router DOM v6
+- **HTTP Client:** Axios
+
+## Setup & Run
+
+```bash
+npm install
+npm run dev       # development server on http://localhost:5173
+npm run build     # production build
+```
+
+> Make sure the backend is running on port 5000 before starting the frontend.
+
+---
+
+## Pages
+
+### 1. Todo List Page — `/`
+
+The main page of the application.
+
+**Features:**
+- View all todos in a clean card layout
+- Add new todos using the inline form
+- Mark todos as complete or incomplete with a checkbox
+- Delete todos (with confirmation prompt)
+- Click View to go to the detail page
+- Search todos by title in real time
+- Filter by status: All / Active / Done
+- Filter by priority: All / Low / Medium / High
+- Stats bar showing total, pending, and completed counts
+- Color-coded priority indicators (green / orange / red)
+- Overdue date warning shown in red
+
+### 2. Todo Detail Page — `/todo?id=<uuid>`
+
+Accessed by clicking the View button on any todo card.
+
+**Features:**
+- Displays full todo information
+- Shows status badge (Completed / Pending)
+- Shows priority badge with color
+- Shows formatted due date
+- Shows created and last updated timestamps
+- Shows full description
+- Edit mode — click Edit Todo to modify title, description, priority, due date, and completion status
+- Save or Cancel changes
+- Success message shown after saving
+- Back button to return to the list
+
+---
+
+## Components
+
+| Component | Description |
+|-----------|-------------|
+| `TodoList.jsx` | Main page with list, filters, and search |
+| `TodoDetail.jsx` | Detail and edit page for a single todo |
+| `TodoItem.jsx` | Individual todo card component |
+| `AddTodo.jsx` | Form to create a new todo |
+| `FilterBar.jsx` | Status and priority filter controls |
+| `todoApi.js` | Axios API helper functions |
+
+---
+
+## Routing
+
+React Router DOM is used for multi-page navigation (not SPA). Each route is a distinct page:
+
+| Route | Page |
+|-------|------|
+| `/` | Todo list page |
+| `/todo?id=<uuid>` | Single todo detail page |
+
+The `id` is passed as a **URL query parameter** and read with `useSearchParams()`.
